@@ -39,10 +39,12 @@ test("renders a book data", () => {
 });
 
 it("Intercepts the api call successfully", async () => {
-  const { getByText, findByText } = render(<App />);
+  const { getByText, debug, findByText } = render(<App />);
 
   const button = getByText("Press Me");
   fireEvent.press(button);
+
+  debug();
 
   await findByText(
     JSON.stringify({
